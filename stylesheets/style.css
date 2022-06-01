@@ -23,21 +23,24 @@ html, body {
 }
 
 
-.opt li {
+.opt{
     display: grid;
-    grid-template-columns: repeat(auto-fit,             minmax(200px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    list-style-type: none;
+}
+
+.opt li {
     background: white;
-    padding: 10px;
+    padding: 3px;
     border : 2.5pt solid black;
     border-radius: 10px;
     box-shadow: 0px 30px 50px -25px gray;
     position: relative;
     transition: all 0.3s ease;
     top: 0;
-    margin : auto,
+    margin : auto;
     text-align : center;
-    width : 20rem;
+    width : 10rem;
 }
 
 .opt li:hover {

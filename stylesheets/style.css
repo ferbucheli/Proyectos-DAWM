@@ -1,53 +1,57 @@
-html, body {
+body {
+  margin: 0;
   height: 100%;
   width: 100%;
+  background: #202020;
 }
 
 * {
   font-family : "Manrope", "Arial";
 }
 
-.home h1 {
-  color : white;
-  text-align : center;
-  padding : 20px;
+.navigation {
+  display: flex;
+  flex-direction: column;
 }
 
-.home {
-    background: #352D2D;
-    padding: 20px;
-    border-radius: 5px 5px;
-    position: relative;
-    transition: all 0.3s ease;
-    top: 0;
+.options {
+  background: #323232;
+  margin: 0;
+  height: 6rem;
+  display: flex;
+  position: sticky;
+  left: 0;
+  flex-direction: row;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: white;
+  align-items: center;
 }
 
-
-.opt{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    list-style-type: none;
-}
-
-.opt li {
-    background: white;
-    padding: 3px;
-    border : 2.5pt solid black;
+.options li {
     border-radius: 10px;
-    box-shadow: 0px 30px 50px -25px gray;
     position: relative;
     transition: all 0.3s ease;
-    top: 0;
-    margin : auto;
     text-align : center;
-    width : 10rem;
 }
 
-.opt li:hover {
-      box-shadow: 0px 50px 75px -25px grey !important;
-    top: -20px !important;
+.options li:hover {
+    top: -10px !important;
 }
 
-.navi {
+.content {
+  display: flex;
+  flex-direction: column;
+}
 
+.content input {
+  width: 10rem;
+  margin-left: 10rem;
+  margin-top: 2rem;
+}
+h1 {
+  color: white;
+  margin: 0 2rem;
+  margin-top: 1rem;
 }

@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Manrope:wght@800&display=swap" rel="stylesheet">
-  <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-  <nav class = "navigation">
-    <ul class = "options">
-      <li>FB</li>
-      <li>Logros</li>
-      <li>Idiomas</li>
-      <li>Proyectos</li>
-      <li>Hobbies</li>
-      <li>Educación</li>
-    </ul>
-  </nav>
-  <div class="content">
-    <div class="seccion1">
-      <h1>Mi nombre es </h1>
-      <h1>Fernando Bucheli</h1>
-      <input type="email">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Manrope:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylesheets/normalize.css" />
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/rwd.css" />
+  </head>
+  <body>
+    <nav class="navigation">
+      <div class="logo">
+        <span>FB</span>
+      </div>
+      <div class="options">
+        <ul>
+          <li><a href="#1">Acerca de Mi</a></li>
+          <li><a href="#">Habilidades</a></li>
+          <li><a href="#">Proyectos</a></li>
+          <li><a href="#">Lenguajes de Programacion</a></li>
+          <li><a href="#">Donde Econtrarme</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="content" id="1">
+      <div class="seccion1">
+        <h1>Mi nombre es<br />Fernando Bucheli</h1>
+        <p>
+          Estudio Ingeniería en computacion en la Escuela Superior Politecnica
+          <br />
+          del Litoral. Me gusta mucho programar.
+        </p>
+        <div class="contact">
+          <span>Contact me: </span>
+          <input type="email" />
+        </div>
+        <div class="profile">
+          <img src="img/fer.jpg" alt="profile picture" />
+        </div>
+      </div>
     </div>
-    <table>
-      <th>
-        Github <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAABDCAMAAACRDGoDAAAAYFBMVEX///8AAADZ2dnIyMhkZGSJiYmfn5/6+vq9vb2ZmZnu7u5FRUX09PRZWVng4OCqqqqSkpLn5+cRERFxcXF8fHyxsbFNTU2CgoIzMzMdHR05OTkmJibOzs4KCgpra2u3t7eVqwZBAAADkUlEQVRYhdWY6bKrIAyARatoBaXuWqvv/5ZXVtEWe3SgMzd/jkuOXwlJSOJ5/5PAmOB0GIYUkxj+DFqnQJe0/gk6KcBeisQ5NX6DcondYksDFoDSIfXeGbEAdHdXWPS+s5tdRo6w/SEWgN4NuPmCBaBxgSV8F6GfPPcGJj7E7IrYx2Zg/XK+XLyaqZow3fEEikeLZNa5IkfxOEWBTFFwfLC/Pn+d2sYGwqaj4f1DvA8sczHQ1/suYr0A28XepQ+1BoVIKtjNHuqzpvWOUiGyypUnnzkLE+DAs6BczcOsI1VsHsbSa4YDnUno+Ba5MorCAx3pAjYjqRbfPKorZqFTW+RGJ7g2HTr6g51zB1z5zaNiJhQ6uUWurOaeBzrfMukVkXF0lAWlis04QvKjZseSLg+sFjvdtwVDWXx1NrEq+xrT700q2C111AaD5pMd4aTe29xejx9Iackqunyf+eH8At/scVVmnhG4vW/RKPcZjfmmd5ktcz261Ellh0LVddvW5SjArwk7klrO15N/sOHaLus80Qr6HmJ5aT3/kY510RSyCF0s7WWjr3uWhu2dNP7ZZ0NqXPvdAhMWxAk1sR7DK9Zy6GpgFqdFUYBPXGfYpXwfBOOd667dZ0IMXAcd6FYyloo1x6W3kyOP2pLbQs/CTVH9gvouPxsUOpdsJiGJ4oOmyIU81ACHpt0s2uxiCQqenuLlYufMwfLI1Cd/F9XRsiChd/qM4SYTBS1xd+U8PaKqq1i4YmlSnviyUUjC3Cm3pcAmzjI/qCDPFyEfn2CXXHbq6cfp1N/gD7j07CneI/P+V27r+UFwIRDy3XJpR5hDkkpH41wIBRfzn0F/Vsq4DauHbqe5dD+pA2VMEOPW2erglPtcpOs/c4WcNjd1q1h5Ndlxw7U/ABvuS3FfA5tWnzV1y8NHcBNh55FatfHHx1duiTxED+uzUwfKnffcnT/fykXwZy5NYfO7y30VAnjTGYyhkcvyZGDmjsA8VzQJ/a2NuvrM1eLIGpfNddmH68vc4IKdWQNYZCfXixSX7hH9n9PTHR6EDcbdngtqP9tz6bFx88dKxe8Q+zENbdOc3CyVFiiKKwYO7Z5br7qbvHGlPyTrv8+KGwsu1rmt3jUMlCunHZeGSvek6fq+w9HSlgRlVTKbjbh7DrkXLfcsF/nLxRLoqBr6Z5rAsCTLozJ+0Ht83spS0IdxhqGARLvn8KjQ/AdbVie6aYLJ9QAAAABJRU5ErkJggg==" alt="">
-      </th>
-    </table>
-    <li>Contacto</li>
-    <a href="https://twitter.com/?lang=es">Twitter</a>
 
-  </div>
-
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

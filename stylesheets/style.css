@@ -9,6 +9,7 @@ body {
 .navigation {
   background: #323232;
   height: 6rem;
+  width: 100%;
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -32,7 +33,7 @@ body {
 }
 
 .options li a {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
   height: 2rem;
   position: relative;
@@ -50,6 +51,21 @@ body {
   padding-left: 4rem;
 }
 
+.content ul {
+  padding-left: 1.5rem;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content li {
+  font-size: 1.5rem;
+  color: #6ce5ff;
+  text-decoration: none;
+  padding-top: 0.8rem;
+}
+
 .seccion1 {
   margin-top: 6rem;
   display: grid;
@@ -60,6 +76,7 @@ body {
 h1 {
   color: white;
   font-size: 4rem;
+  margin: 2rem 0;
 }
 
 .seccion1 span {
@@ -106,9 +123,9 @@ input {
   justify-content: space-between;
 }
 
-.seccion2 li {
-  font-size: 1.5rem;
-  color: #6ce5ff;
-  text-decoration: none;
-  padding-top: 0.8rem;
+.map {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
 }

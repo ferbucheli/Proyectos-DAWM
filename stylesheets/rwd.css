@@ -41,6 +41,12 @@
     font-size: 1rem;
   }
 
+  .contact span,
+  input {
+    padding: 0;
+    width: 10rem;
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -48,6 +54,7 @@
   iframe {
     width: 300px;
     height: 250px;
+    fill: rgb(255, 255, 255);
   }
 
   .content li {

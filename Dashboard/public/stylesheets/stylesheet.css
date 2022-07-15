@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #2b2d2f;
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+.navbar .container-fluid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.title h1 {
+  padding-left: 1rem;
+}
+
+.navbar img {
+  width: 5rem;
+}
+
+.navbar h1 {
+  color: white;
+}
+
+.navbar input {
+  display: inline;
+  width: 20rem;
+}
+
+.buscar {
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.pokemon {
+  margin: 5rem;
+}
+
+.dashboard .container-fluid {
+  display: flex;
+}
+.dashboard .card {
+  background: #851e1e;
+  border-radius: 2%;
+  margin: 2rem;
+}
+
+.dashboard .card h1 {
+  color: white;
+  text-align: center;
+}
+
+.dashboard .card img {
+  background: white;
+  border-radius: 50%;
+}
+
+.dashboard .card .card-title {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.cf2 div {
+  height: 25rem;
+  width: 45rem;
+  padding: 0 5rem;
+}

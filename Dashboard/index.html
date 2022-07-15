@@ -4,7 +4,73 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Pokemon Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="public/stylesheets/stylesheet.css" />
+    <link
+      rel="icon"
+      href="https://icons-for-free.com/download-icon-pikachu+pokeball+pokemon+icon-1320184857556086253_512.png"
+    />
+    <script
+      src="https://kit.fontawesome.com/e92a2ac718.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- Nav Bar -->
+    <nav class="navbar bg-dark">
+      <div class="container-fluid">
+        <div class="title">
+          <img
+            src="https://icons-for-free.com/download-icon-pikachu+pokeball+pokemon+icon-1320184857556086253_512.png"
+            alt="pokemon-logo"
+          />
+          <h1>The Pokemon Dashboard</h1>
+        </div>
+        <div class="filter">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="select-type"
+          >
+            <option value="intruction" disabled selected>
+              Seleccione un tipo de Pokemon
+            </option>
+          </select>
+        </div>
+        <div class="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Buscar Pokemon ..."
+            aria-label="Search"
+            id="pokemon_name"
+          />
+          <button class="btn btn-outline-danger" id="spoke" type="button">
+            Buscar
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- End Nav bar -->
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+      <div class="container-fluid cf1"></div>
+      <div class="container-fluid cf2"></div>
+    </div>
+    <!-- End Dashboard -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="public/scripts/script.js"></script>
+  </body>
 </html>

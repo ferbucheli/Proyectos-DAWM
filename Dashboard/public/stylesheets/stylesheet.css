@@ -7,7 +7,7 @@
 body {
   background: #2b2d2f;
   width: 100%;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
 }
 
 .navbar .container-fluid {
@@ -74,8 +74,23 @@ body {
   font-size: 1.5rem;
 }
 
+.cf2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cf2 div {
-  height: 25rem;
-  width: 45rem;
+  height: 40rem;
+  width: 60rem;
   padding: 0 5rem;
+}
+
+.cf1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cf1 select {
+  width: 20rem;
 }

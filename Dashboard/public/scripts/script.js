@@ -1,5 +1,8 @@
 document.querySelector('#spoke').addEventListener('click', getPokemon)
 window.addEventListener('DOMContentLoaded', loadTypes)
+document.querySelector('#clear-btn').addEventListener('click', (e) => {
+    limpiar('.dashboard')
+})
 
 function textoToHTML(text){
     let template = document.createElement('template')
@@ -7,10 +10,25 @@ function textoToHTML(text){
     return template.content.firstChild
 }
 
+function limpiar(clase){
+    let elements = document.querySelector(clase).children
+    for(let i in Chart.instances){
+        Chart.instances[i].destroy()
+    }
+    console.log(Chart.instances)
+    for(let e of elements){
+        e.innerHTML = ''
+    }
+}
+
 
 function getPokemon(e){
+    let contatiner = document.querySelector('.dashboard').querySelector('.cf1')
+    if(contatiner.children.length > 0){
+        if(contatiner.children[0].tagName == 'SELECT')
+            contatiner.innerHTML = ''
+    }
     let pokemon = document.querySelector('#pokemon_name').value
-    console.log(pokemon)
     fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon)
     .then(response => response.json())
     .then(data => {
@@ -28,14 +46,12 @@ function getPokemon(e){
         `
 
         let card = textoToHTML(pCard)
-
         card.addEventListener('click', (ev) => {
             console.log(ev.target)
             if(ev.target.id == `stats-btn${pokemon}`)
                 loadStats(pokemon)
         })
-
-        document.querySelector('.dashboard').querySelector('.cf1').appendChild(card)
+        contatiner.appendChild(card)
     }).catch(error => {
         console.log(error)
     })
@@ -47,9 +63,13 @@ Chart.defaults.font.family = 'Arial';
 
 
 function loadStats(pokemon){
-        plantilla = `<div><canvas id ="${pokemon}chart"></canvas></div>`
+    let cont = document.querySelector('.cf2')
+    if(cont.children.length == 0){
+        plantilla = `<div>
+                        <canvas id ="chart"></canvas>
+                    </div>`
         let canva = textoToHTML(plantilla)
-        document.querySelector('.cf2').appendChild(canva)
+        cont.appendChild(canva)
         fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon)
         .then(response => response.json())
         .then(data => {
@@ -59,34 +79,59 @@ function loadStats(pokemon){
             for(let s of stats){
                 numeros.push(s.base_stat)
             }
-            let myChart = document.getElementById(`${pokemon}chart`).getContext('2d')
-            let chartmass = new Chart(myChart, {
-                type: 'bar',
-                data:{
-                    labels:['HP', 'ATACK', 'DEFENSE', 'SPECIAL ATTACK', 'SPECIAL DEFENSE', 'SPEED'],
-                    datasets:[{
-                        label: `${pokemon}'s Stats`,
-                        data: numeros,
-                        backgroundColor: '#851e1e'
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: {
-                          display: true,
-                          text: `${pokemon}'s Stats`,
-                          font: {
-                            size: 25
-                          }
+            let myChart = document.getElementById(`chart`).getContext('2d')
+                let chartmass = new Chart(myChart, {
+                    type: 'bar',
+                    data:{
+                        labels:['HP', 'ATACK', 'DEFENSE', 'SPECIAL ATTACK', 'SPECIAL DEFENSE', 'SPEED'],
+                        datasets:[{
+                            label: `${pokemon}' Points`,
+                            data: numeros,
+                            backgroundColor: '#851e1e'
+                        }],
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                            display: true,
+                            text: `Stats`,
+                            font: {
+                                size: 25
+                            }
+                            }
                         }
                     }
-                }
-            })
+                })
         }).catch(error => {
             console.log(error)
         })
+    } else {
+        fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon)
+        .then(response => response.json())
+        .then(data => {
+            console.log(pokemon)
+            let stats = data.stats
+            let numeros = []
+            for(let s of stats){
+                numeros.push(s.base_stat)
+            }
+            let myChart = document.getElementById(`chart`).getContext('2d')
+            let newData = {
+                label: `${pokemon}' Points`,
+                data: numeros,
+                backgroundColor: '#' + Math.floor(Math.random()*16777215).toString(16)
+            }
+            console.log(Chart.instances)
+            for(let i in Chart.instances){
+                Chart.instances[i].data.datasets.push(newData)
+                Chart.instances[i].update()
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    }
 }
 
 
@@ -101,23 +146,107 @@ function loadTypes(e){
       for(let t of tipos){
         let opt = `<option value="${t.name}">${t.name}</option>`
         select.innerHTML += opt
-      }  
+      }
+      select.addEventListener('change', (ev) => {
+        loadPokemonType(ev.target.value)
+      })
     }).catch(error => {
         console.log(error)
     })   
 }
 
 function loadPokemonType(type){
+    let plantilla = `
+        <select
+        class="form-select"
+        aria-label="Default select example"
+        id="select-pokemon"
+        >
+            <option value="intruction" disabled selected>
+                Seleccione un Pokemon de tipo ${type}
+            </option>
+        </select>
+    `
+    document.querySelector('.cf1').innerHTML = plantilla
+    document.querySelector('.cf2').innerHTML = ''
+    let select = document.querySelector('#select-pokemon')
+    select.addEventListener('change', (e) => {
+        loadStats(e.target.value)
+    })
     fetch("https://pokeapi.co/api/v2/type/" + type)
     .then(response => response.json())
     .then(data => {
-      let tipos = data.results
-      let select = document.querySelector('#select-type')
-      for(let t of tipos){
-        let opt = `<option value="${t.name}">${t.name}</option>`
+      let pokemones = data.pokemon
+      for(let p of pokemones){
+        let opt = `<option value="${p.pokemon.name}">${p.pokemon.name}</option>`
         select.innerHTML += opt
-      }  
+      }
+      displayPokemons(pokemones, type)
     }).catch(error => {
         console.log(error)
     })   
 }
+
+
+let displayPokemons = (pokemons, type) => {
+    let names = []
+    for(let p of pokemons){
+        names.push(p.pokemon.name)
+    }
+    let nums = []
+    let fetches = []
+    for(let n of names){
+        fetches.push(
+            fetch("https://pokeapi.co/api/v2/pokemon/" + n)
+            .then(response => response.json())
+            .then(data => {
+                nums.push(data.weight)
+            }).catch(error => {
+                console.log(error)
+            })
+        )
+    }
+    console.log(nums)
+    plantilla = `<div>
+                    <canvas id ="pokemonschart"></canvas>
+                </div>
+                `
+    document.querySelector('.cf2').appendChild(textoToHTML(plantilla))
+    Promise.all(fetches).then(function(){
+
+        let myChart = document.getElementById(`pokemonschart`).getContext('2d')
+        let chartmass = new Chart(myChart, {
+            type: 'bar',
+            data:{
+                labels: names.slice(0,10),
+                datasets:[{
+                    label: 'weight',
+                    data: nums.slice(0,10),
+                    backgroundColor: '#851e1e'
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                      display: true,
+                      text: `Weights`,
+                      font: {
+                        size: 25
+                      }
+                    }
+                }
+            },
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 100,
+                    stepSize: 10
+                }
+            }]
+        })
+    })
+    console.log(nums)
+}
+

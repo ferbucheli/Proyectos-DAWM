@@ -66,12 +66,18 @@ body {
 .dashboard .card img {
   background: white;
   border-radius: 50%;
+  margin: 1rem 0;
 }
 
 .dashboard .card .card-title {
   color: white;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.dashboard .card button {
+  width: 10rem;
+  margin: auto;
 }
 
 .cf2 {

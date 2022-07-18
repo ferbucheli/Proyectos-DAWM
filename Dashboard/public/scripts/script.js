@@ -11,13 +11,17 @@ function textoToHTML(text){
 }
 
 function limpiar(clase){
-    let elements = document.querySelector(clase).children
-    for(let i in Chart.instances){
-        Chart.instances[i].destroy()
-    }
-    console.log(Chart.instances)
-    for(let e of elements){
-        e.innerHTML = ''
+    if(clase == '.dashboard'){
+        let elements = document.querySelector(clase).children
+        for(let c of elements){
+            c.innerHTML = ''
+        }
+    } else {
+        let elements = document.querySelector(clase).innerHTML = ''
+        for(let i in Chart.instances){
+            Chart.instances[i].destroy()
+        }
+        console.log(Chart.instances)
     }
 }
 
@@ -25,8 +29,11 @@ function limpiar(clase){
 function getPokemon(e){
     let contatiner = document.querySelector('.dashboard').querySelector('.cf1')
     if(contatiner.children.length > 0){
-        if(contatiner.children[0].tagName == 'SELECT')
+        if(contatiner.children[0].tagName == 'SELECT'){
             contatiner.innerHTML = ''
+            limpiar('.cf1')
+            limpiar('.cf2')
+        }
     }
     let pokemon = document.querySelector('#pokemon_name').value
     fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon)
@@ -39,7 +46,7 @@ function getPokemon(e){
             <div class="card" style="width: 18rem;">
                 <h1 class="card-title">${name}</h1>
                 <img src="${url}" class="card-img-top" alt="${name}">
-                <button class="btn btn-outline-dark" id="stats-btn${pokemon}" type="button">
+                <button class="btn btn-dark" id="stats-btn${pokemon}" type="button">
                     Mostrar Estadisticas
                 </button>
             </div>
@@ -147,7 +154,7 @@ function loadTypes(e){
         let opt = `<option value="${t.name}">${t.name}</option>`
         select.innerHTML += opt
       }
-      select.addEventListener('change', (ev) => {
+      select.addEventListener('change', (ev) => {   
         loadPokemonType(ev.target.value)
       })
     }).catch(error => {
@@ -171,6 +178,7 @@ function loadPokemonType(type){
     document.querySelector('.cf2').innerHTML = ''
     let select = document.querySelector('#select-pokemon')
     select.addEventListener('change', (e) => {
+        limpiar('.cf2')
         loadStats(e.target.value)
     })
     fetch("https://pokeapi.co/api/v2/type/" + type)

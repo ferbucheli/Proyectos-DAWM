@@ -1,0 +1,35 @@
+<app-selecciones (cambioTipo)="tipo = $event"></app-selecciones>
+<mat-form-field appearance="legacy" class="busqueda">
+  <input
+    matInput
+    placeholder="Buscar Modelo"
+    name="filterProduct"
+    [(ngModel)]="filterProduct"
+  />
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<div class="container-fluid">
+  <div
+    class="card"
+    *ngFor="let producto of productos | filter: filterProduct | tipos: tipo"
+  >
+    <h3 class="card-title">{{ producto.modelo }}</h3>
+    <img
+      src="https://i.pinimg.com/originals/30/5b/84/305b84fafe3682f6198703ef3176fcab.png"
+      class="card-img-top"
+      alt="sombrero.png"
+    />
+    <span class="precio">${{ producto.precio }}</span>
+    <button
+      mat-icon-button
+      color="primary"
+      aria-label="Example icon button with a home icon"
+      routerLink="/producto"
+      class="boton-producto"
+    >
+      <mat-icon [routerLink]="['/producto', producto.id]" class="arrow-icon"
+        >arrow_forward</mat-icon
+      >
+    </button>
+  </div>
+</div>

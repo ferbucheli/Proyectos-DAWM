@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 12rem;
+  height: 12rem;
+  background: #efefef;
+  border-radius: 2rem;
+  border: none;
+}
+
+h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: visible;
+}
+
+img {
+  width: 8.5rem;
+  height: 6rem;
+}
+
+.btn {
+  width: 8rem;
+  height: 1.8rem;
+  font-size: 0.8rem;
+  margin: auto;
+  text-align: center;
+}
+
+.boton-producto {
+  background: white;
+  height: 2rem;
+  width: 2rem;
+}
+
+.arrow-icon {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.precio {
+  font-weight: bold;
+}
+
+.busqueda {
+  margin-left: 1rem;
+}

@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <button
+    mat-raised-button
+    *ngFor="let tipo of tipos"
+    (click)="seleccionarTipo(tipo)"
+  >
+    <span>{{ tipo }}</span>
+  </button>
+</div>

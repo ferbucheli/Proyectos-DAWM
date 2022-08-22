@@ -1,0 +1,23 @@
+.app-logo {
+  width: 9rem;
+}
+
+.cart {
+  font-size: 1.8rem;
+}
+
+button {
+  height: 3rem;
+  width: 3rem;
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,25 @@
+* {
+  overflow: hidden;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+span {
+  font-size: 0.6rem;
+  margin: auto;
+  font-weight: bold;
+}
+
+button {
+  width: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.busqueda {
+  margin: 1rem;
+}

@@ -1,0 +1,54 @@
+{
+	"model": {
+		"type": "Object",
+		"value": {
+			"id": {
+				"type": "incrementNumber",
+				"options": {
+					"from": 0
+				}
+			},
+			"nombre": {
+				"type": "faker",
+				"value": "name.firstName"
+			},
+			"apellido": {
+				"type":"faker",
+				"value": "name.lastName"
+			},
+			"usario": {
+				"type": "faker",
+				"value": "internet.userName"
+            },
+			"direccion" : {
+				"type":"Object",
+				"value": {
+					"pais": {
+						"type": "faker",
+						"value": "address.country"
+					},
+					"ciudad": {
+						"type": "faker",
+						"value": "address.city"
+					},
+					"calle":{
+						"type": "faker",
+						"value": "address.secondaryAddress"
+					}
+				}
+			},
+			"correo": {
+				"type": "faker",
+				"value": "internet.email"
+			},
+			"clave": {
+				"type": "faker",
+				"value": "internet.password"
+			},
+			"img_url": {
+				"type": "faker",
+				"value": "image.avatar"
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<app-footer></app-footer>
+<button
+  mat-icon-button
+  color="basic"
+  aria-label="back"
+  routerLink="/home"
+  class="backBtn"
+>
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<ng-container *ngIf="products.length != 0">
+  <div class="container-fluid">
+    <h1>Carrito de Compras</h1>
+    <div class="card" *ngFor="let item of products; let i = index">
+      <div class="info">
+        <h3 class="card-title">{{ item.modelo }}</h3>
+        <img
+          src="https://i.pinimg.com/originals/30/5b/84/305b84fafe3682f6198703ef3176fcab.png"
+          class="card-img-top"
+          alt="..."
+        />
+      </div>
+      <span>{{ item.precio }}</span>
+      <span>x1</span>
+      <button class="btn btn-danger trash" (click)="removeItem(item)">
+        <i class="fa-regular fa-trash-can"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="checkout">
+    <span>Total: ${{ grandTotal }}</span>
+    <button class="btn btn-primary">checkout</button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+  <h1>No hay articulos en tu carrito!</h1>
+</ng-container>

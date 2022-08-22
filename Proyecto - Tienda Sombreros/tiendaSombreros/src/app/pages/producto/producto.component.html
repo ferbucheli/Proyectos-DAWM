@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<app-footer></app-footer>
+<button
+  mat-icon-button
+  color="basic"
+  aria-label="back"
+  routerLink="/home"
+  class="btn-back"
+>
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<div class="card">
+  <div class="card-title">
+    <h2>{{ item.modelo }}</h2>
+  </div>
+  <div
+    class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
+    data-mdb-ripple-color="light"
+  >
+    <img
+      src="https://i.pinimg.com/originals/30/5b/84/305b84fafe3682f6198703ef3176fcab.png"
+      class="img-fluid"
+    />
+  </div>
+  <div class="card-body">
+    <div class="d-flex">
+      <div class="precio">${{ item.precio }}</div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addtoCart(item)">
+      Agregar al Carrito
+    </button>
+  </div>
+</div>

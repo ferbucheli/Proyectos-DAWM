@@ -13,6 +13,9 @@ import { RouterModule } from '@angular/router';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { AuthService } from '../servicios/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     UsuarioComponent,
     CarritoComponent,
-    ProductoComponent
+    ProductoComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -31,14 +35,19 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
     HomeComponent,
     LoginComponent,
     CarritoComponent,
     UsuarioComponent,
-    ProductoComponent
+    ProductoComponent,
+    RegisterComponent
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class PagesModule { }

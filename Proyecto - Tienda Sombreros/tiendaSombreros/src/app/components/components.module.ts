@@ -3,22 +3,19 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SeleccionesComponent } from './selecciones/selecciones.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { ShowcaseComponent } from './showcase/showcase.component';
-import { FooterComponent } from './footer/footer.component'; 
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatBadgeModule} from '@angular/material/badge';
+import { FooterComponent } from './footer/footer.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { TiposPipe } from '../pipes/tipos.pipe';
-
-
-
 
 @NgModule({
   declarations: [
@@ -27,7 +24,7 @@ import { TiposPipe } from '../pipes/tipos.pipe';
     ShowcaseComponent,
     FooterComponent,
     FilterPipe,
-    TiposPipe
+    TiposPipe,
   ],
   imports: [
     CommonModule,
@@ -48,7 +45,7 @@ import { TiposPipe } from '../pipes/tipos.pipe';
     ShowcaseComponent,
     FooterComponent,
     FilterPipe,
-    TiposPipe
-  ]
+    TiposPipe,
+  ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

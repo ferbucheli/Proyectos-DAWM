@@ -18,8 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'orden',
         key: 'id'
-      },
-      unique: "fk_orden"
+      }
     },
     producto: {
       type: DataTypes.INTEGER,
@@ -27,8 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'producto',
         key: 'id'
-      },
-      unique: "fk_producto"
+      }
     }
   }, {
     sequelize,
@@ -44,16 +42,14 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "orden",
-        unique: true,
+        name: "fk_orden",
         using: "BTREE",
         fields: [
           { name: "orden" },
         ]
       },
       {
-        name: "producto",
-        unique: true,
+        name: "fk_producto",
         using: "BTREE",
         fields: [
           { name: "producto" },

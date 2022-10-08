@@ -5,20 +5,19 @@ import { Producto } from 'src/app/interfaz/producto';
 @Component({
   selector: 'app-showcase',
   templateUrl: './showcase.component.html',
-  styleUrls: ['./showcase.component.css']
+  styleUrls: ['./showcase.component.css'],
 })
 export class ShowcaseComponent implements OnInit {
-  productos:any = [];
+  productos: any = [];
 
   filterProduct = '';
-  tipo:string = 'Todos';
+  tipo: string = 'Todos';
 
-  constructor(private recursoService: RecursoService) { }
+  constructor(private recursoService: RecursoService) {}
 
   ngOnInit(): void {
-    this.recursoService.obtenerProductos().subscribe(respuesta => {
-      this.productos = respuesta
-    })
+    this.recursoService.obtenerProductos().subscribe((respuesta) => {
+      this.productos = respuesta;
+    });
   }
-
 }

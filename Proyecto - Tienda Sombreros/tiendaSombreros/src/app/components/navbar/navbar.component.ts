@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  faCartShopping = faCartShopping;
 
-  faCartShopping = faCartShopping
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

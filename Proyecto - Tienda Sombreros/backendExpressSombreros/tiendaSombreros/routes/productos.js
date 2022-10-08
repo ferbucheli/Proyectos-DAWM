@@ -5,6 +5,7 @@ const Producto = require('../models').producto;
 
 /* GET users listing. */
 
+// Obtener Todos los Productos
 router.get('/', function(req, res, next) {  
     Producto.findAll({
       })
@@ -14,6 +15,7 @@ router.get('/', function(req, res, next) {
       .catch(error => res.status(400).send(error))
 });
 
+// Obtener 1 producto por ID
 router.get('/:id', function(req, res, next) {
     let id = parseInt(req.params.id);
     Producto.findOne({
@@ -25,7 +27,7 @@ router.get('/:id', function(req, res, next) {
         res.json( productos );  
     })  
     .catch(error => res.status(400).send(error))
-  })
+})
   
 
 module.exports = router;

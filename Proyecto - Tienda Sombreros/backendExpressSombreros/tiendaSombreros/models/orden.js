@@ -18,8 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_cliente: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: "id_cliente"
+      allowNull: false
     }
   }, {
     sequelize,
@@ -32,14 +31,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
-      },
-      {
-        name: "id_cliente",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "id_cliente" },
         ]
       },
     ]

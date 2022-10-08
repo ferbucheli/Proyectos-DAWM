@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- ** CSS Plugins Needed for the Project ** -->
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="banner overlay bg-cover" data-background="images/banner.jpg">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-controls="navigation"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- banner -->
+      <div class="container section">
+        <div class="row">
+          <div class="col-lg-8 text-center mx-auto">
+            <h1 class="text mb-3">Documentacion de Backend</h1>
+            <p class="text mb-4">
+              Documentacion para el backend de tienda de sombreros online
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /banner -->
+    </header>
+    <!-- /header -->
+
+    <!-- topics -->
+    <section class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h2 class="section-title">Metodos disponibles:</h2>
+          </div>
+          <!-- topic-item -->
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <i class="ti-panel icon text-primary d-block mb-4"></i>
+            <h3 class="mb-3 mt-0">Obtener todos los sombreros de la tienda</h3>
+            <a href="http://localhost:3000/productos"
+              >http://localhost:3000/productos</a
+            >
+            <pre>
+                    <code>
+                        router.get('/', function(req, res, next) { 
+                            Producto.findAll({
+                        }) .then(productos => { 
+                            res.json( productos ); 
+                        }).catch(error=> res.status(400).send(error)) });
+                    </code>
+            </pre>
+          </div>
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <i class="ti-credit-card icon text-primary d-block mb-4"></i>
+            <h3 class="mb-3 mt-0">
+              Obtener solo 1 producto de la tienda por id
+            </h3>
+            <a href="http://localhost:3000/productos/60"
+              >http://localhost:3000/productos/id</a
+            >
+            <pre>
+                <code>
+                    router.get('/:id', function(req, res, next) {
+                        let id = parseInt(req.params.id);
+                        Producto.findOne({
+                          where: { 
+                            id: id
+                          }
+                        })
+                        .then(productos => {  
+                            res.json( productos );  
+                        })  
+                        .catch(error => res.status(400).send(error))
+                    })
+                </code>
+        </pre>
+          </div>
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <i class="ti-package icon text-primary d-block mb-4"></i>
+            <h3 class="mb-3 mt-0">Obtener las ordenes totales</h3>
+            <a href="http://localhost:3000/ordenes"
+              >http://localhost:3000/docs</a
+            >
+            <pre>
+                <code>
+                    router.post('/', function(req, res, next) {
+                        Ordenes.create({
+                            total: Number(req.body.total),
+                            fecha: new Date(),
+                            id_cliente: parseInt(req.body.id_cliente)
+                          })
+                          .then(orden => {
+                            res.send(orden);
+                        })
+                        .catch(error => res.status(400).send(error))
+                    });
+                    
+                </code>
+        </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /topics -->
+
+    <!-- /call to action -->
+
+    <!-- /footer -->
+  </body>
+</html>

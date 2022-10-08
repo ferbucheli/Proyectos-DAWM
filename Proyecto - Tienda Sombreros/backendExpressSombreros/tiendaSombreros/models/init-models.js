@@ -9,9 +9,9 @@ function initModels(sequelize) {
   var productocarro = _productocarro(sequelize, DataTypes);
 
   productocarro.belongsTo(orden, { as: "orden_orden", foreignKey: "orden"});
-  orden.hasOne(productocarro, { as: "productocarro", foreignKey: "orden"});
+  orden.hasMany(productocarro, { as: "productocarros", foreignKey: "orden"});
   productocarro.belongsTo(producto, { as: "producto_producto", foreignKey: "producto"});
-  producto.hasOne(productocarro, { as: "productocarro", foreignKey: "producto"});
+  producto.hasMany(productocarro, { as: "productocarros", foreignKey: "producto"});
 
   return {
     orden,
